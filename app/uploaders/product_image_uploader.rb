@@ -1,14 +1,4 @@
 # encoding: utf-8
-CarrierWave.configure do |config|
-  config.fog_credentials = {
-    :provider => 'AWS'
-    :aws_access_key_id => 'AKIAJ4AIXAF5RTLCCVXA'
-    :aws_secret_access_key => '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'
-  }
-  config.fog_directory = 'crisli'
-end
-
- 
 class ProductImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
@@ -18,16 +8,19 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   # include Sprockets::Helpers::RailsHelper
   # include Sprockets::Helpers::IsolatedHelper
-  include CarrierWaveDirect::Uploader
+#include CarrierWaveDirect::Uploader
   # Choose what kind of storage to use for this uploader:
   # storage :file
   storage :fog
  # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-#  def store_dir
-#    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-#  end
+  def store_dir
+    "#{model.class.to_s.underscore.pluralize}/#{model.id}"
+  end
 
+  def filename
+    cache_name.split("/")[0] + "-" + size.to_s + "." + original_filename.split(".").last
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -50,9 +43,9 @@ class ProductImageUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
+  def extension_white_list
+    %w(jpg jpeg gif png bmp)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

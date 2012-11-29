@@ -37,7 +37,7 @@ end
 
 gem 'jquery-rails'
 gem 'carrierwave'
-gem 'carrierwave_direct'
+gem 'fog'
 gem 'rails_config'
 
 # To use ActiveModel has_secure_password

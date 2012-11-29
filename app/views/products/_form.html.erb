@@ -12,32 +12,56 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>: 
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :model %><br />
+    <%= f.label :model %>: 
     <%= f.text_field :model %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>: 
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :weight %><br />
+    <%= f.label :weight %>: 
     <%= f.text_field :weight %>
   </div>
   <div class="field">
-    <%= f.label :price %><br />
+    <%= f.label :price %>: 
     <%= f.text_field :price %>
   </div>
   <div class="field">
-    <%= f.label :color %><br />
+    <%= f.label :color %>: 
     <%= f.text_field :color %>
   </div>
   <div class="field">
-    <%= f.label :num_instock %><br />
+    <%= f.label :size %>: 
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label "Number of Items in stock" %>: 
     <%= f.number_field :num_instock %>
+  </div>
+  <div class="field">
+    <%= f.label "Bust Width" %>: 
+    <%= f.number_field :bust_length %>
+  </div>
+  <div class="field">
+    <%= f.label "Shoulder Length" %>: 
+    <%= f.number_field :shoulder_length %>
+  </div>
+  <div class="field">
+    <%= f.label "Sleeve Length"%>: 
+    <%= f.number_field :sleeve_length %>
+  </div>
+ <div class="field">
+    <%= f.label "Length Full"%>: 
+    <%= f.number_field :length_full %>
+  </div>
+  <div class="field">
+    <%= f.label "Product Image" %>: 
+    <%= f.file_field :img_url %>
   </div>
   <div class="actions">
     <%= f.submit %>

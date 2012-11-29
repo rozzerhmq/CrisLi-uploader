@@ -1,40 +1,49 @@
-<p id="notice"><%= notice %></p>
+<div style="width: 100%; text-align:center">
+  <h1 style="font-family: Calibri, sans-serif">
+    Details of the product 
+  </h1>
+ 
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @product.name %>
-</p>
+  <p>
+    <b>Name:</b>
+    <%= @product.name %>
+  </p>
 
-<p>
-  <b>Model:</b>
-  <%= @product.model %>
-</p>
+  <p>
+    <b>Model:</b>
+    <%= @product.model %>
+  </p>
 
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
+  <p>
+    <b>Description:</b>
+    <%= @product.description %>
+  </p>
 
-<p>
-  <b>Weight:</b>
-  <%= @product.weight %>
-</p>
+  <p>
+    <b>Weight:</b>
+    <%= @product.weight %>
+  </p>
 
-<p>
-  <b>Price:</b>
-  <%= @product.price %>
-</p>
+  <p>
+    <b>Price:</b>
+    <%= @product.price %>
+  </p>
 
-<p>
-  <b>Color:</b>
-  <%= @product.color %>
-</p>
+  <p>
+    <b>Color:</b>
+    <%= @product.color %>
+  </p>
 
-<p>
-  <b>Num instock:</b>
-  <%= @product.num_instock %>
-</p>
+  <p>
+    <b>Status:</b>
+    <%= @product.num_instock.nil? ? "":(@product.num_instock > 0) ? "Avaliable" : "Out of Stock" %>
+  </p>
 
+ <div>
+    <img src=<%= @product.img_url.to_s %> />
+  </div>
 
+</div>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
