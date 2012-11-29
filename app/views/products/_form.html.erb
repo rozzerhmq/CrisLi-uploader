@@ -1,69 +1,86 @@
-<%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @product, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :model, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :model, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :weight, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :weight, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :price, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :price, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :color, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :color, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :num_instock, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :num_instock, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :size, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :size, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bust_length, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bust_length, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :shoulder_length, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :shoulder_length, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :sleeve_length, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sleeve_length, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :length_full, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :length_full, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :img_url, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :img_url, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %>: 
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :model %>: 
-    <%= f.text_field :model %>
-  </div>
-  <div class="field">
-    <%= f.label :description %>: 
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :weight %>: 
-    <%= f.text_field :weight %>
-  </div>
-  <div class="field">
-    <%= f.label :price %>: 
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :color %>: 
-    <%= f.text_field :color %>
-  </div>
-  <div class="field">
-    <%= f.label :size %>: 
-    <%= f.text_field :size %>
-  </div>
-  <div class="field">
-    <%= f.label "Number of Items in stock" %>: 
-    <%= f.number_field :num_instock %>
-  </div>
-  <div class="field">
-    <%= f.label "Bust Width" %>: 
-    <%= f.number_field :bust_length %>
-  </div>
-  <div class="field">
-    <%= f.label "Shoulder Length" %>: 
-    <%= f.number_field :shoulder_length %>
-  </div>
-  <div class="field">
-    <%= f.label "Sleeve Length"%>: 
-    <%= f.number_field :sleeve_length %>
-  </div>
- <div class="field">
-    <%= f.label "Length Full"%>: 
-    <%= f.number_field :length_full %>
-  </div>
-  <div class="field">
-    <%= f.label "Product Image" %>: 
-    <%= f.file_field :img_url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                products_path, :class => 'btn' %>
   </div>
 <% end %>

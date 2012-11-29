@@ -19,7 +19,7 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    cache_name.split("/")[0] + "-" + size.to_s + "." + original_filename.split(".").last
+    cache_name.split("/")[0] + "-" + size.to_s + "." + original_filename.split(".").last unless original_filename.nil?
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
